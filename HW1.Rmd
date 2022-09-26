@@ -1,0 +1,49 @@
+---
+title: "Homework1"
+author: "Christine Hou"
+date: "2022-09-26"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Input Preparation
+
+```{r}
+library(tidyverse)
+library(dbplyr)
+library(nycflights13)
+```
+
+
+### 1. How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
+
+```{r,comment=NA}
+sum(is.na(flights$dep_time))
+```
+
+There are 8255 flights are missing.
+
+```{r,comment=NA}
+flights %>% filter(is.na(dep_time))
+```
+
+The flights with missing `dep_time`, the variables including `dep_delay`,`arr_time`,`arr_delay`,`air_time` are also missing. This actually means that these flights are cancelled by airlines. 
+
+### 2. Currently dep_time and sched_dep_time are convenient to look at, but hard to compute with because they’re not really continuous numbers. Convert them to a more convenient representation of number of minutes since midnight.
+
+```{r}
+
+```
+
+### 3. Look at the number of canceled flights per day. Is there a pattern? Is the proportion of canceled flights related to the average delay? Use multiple dyplr operations, all on one line, concluding with `ggplot(aes(x= ,y=)) + geom_point()`
+
+```{r}
+
+```
+
+
+
+
