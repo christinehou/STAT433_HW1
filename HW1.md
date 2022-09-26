@@ -71,4 +71,27 @@ actually means that these flights are cancelled by airlines.
 
 ### 2. Currently dep_time and sched_dep_time are convenient to look at, but hard to compute with because they’re not really continuous numbers. Convert them to a more convenient representation of number of minutes since midnight.
 
+``` r
+flights = mutate(flights,
+                   dep_time_minutes = dep_time %/% 100 * 60 + dep_time %% 100,
+                   sched_dep_time_minutes = sched_dep_time %/% 100 * 60 + sched_dep_time %% 100)
+select(flights, starts_with('dep_time'), starts_with('sched'))
+```
+
+    ## # A tibble: 336,776 × 5
+    ##    dep_time dep_time_minutes sched_dep_time sched_arr_time sched_dep_time_minu…¹
+    ##       <int>            <dbl>          <int>          <int>                 <dbl>
+    ##  1      517              317            515            819                   315
+    ##  2      533              333            529            830                   329
+    ##  3      542              342            540            850                   340
+    ##  4      544              344            545           1022                   345
+    ##  5      554              354            600            837                   360
+    ##  6      554              354            558            728                   358
+    ##  7      555              355            600            854                   360
+    ##  8      557              357            600            723                   360
+    ##  9      557              357            600            846                   360
+    ## 10      558              358            600            745                   360
+    ## # … with 336,766 more rows, and abbreviated variable name
+    ## #   ¹​sched_dep_time_minutes
+
 ### 3. Look at the number of canceled flights per day. Is there a pattern? Is the proportion of canceled flights related to the average delay? Use multiple dyplr operations, all on one line, concluding with `ggplot(aes(x= ,y=)) + geom_point()`
