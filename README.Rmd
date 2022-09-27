@@ -9,6 +9,8 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+*Github url:* https://github.com/christinehou/STAT433_HW1
+
 ### Input Preparation
 
 ```{r}

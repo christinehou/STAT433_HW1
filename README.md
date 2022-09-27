@@ -3,6 +3,8 @@ Homework1
 Christine Hou
 2022-09-26
 
+*Github url:* <https://github.com/christinehou/STAT433_HW1>
+
 ### Input Preparation
 
 ``` r
